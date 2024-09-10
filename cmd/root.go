@@ -145,20 +145,12 @@ func img(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("can't read image: %w", err)
 	}
 
+	fmt.Println(string(iconBody))
+
 	// create a file with the name icon in the current working directory
-	iconFile, err := os.Create(name + "." + ext)
-	if err != nil {
-		return fmt.Errorf("can't create image file: %w", err)
-	}
 
-	defer iconFile.Close()
+	
 
-	_, err = iconFile.Write(iconBody)
-	if err != nil {
-		return fmt.Errorf("can't write image file: %w", err)
-	}
-
-		fmt.Println(string(iconBody))
 
 	//	fmt.Println("Image downloaded successfully")
 
