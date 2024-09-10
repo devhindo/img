@@ -1,0 +1,10 @@
+<USAGE>
+    img -n github -e .ico
+
+
+    ** if existing github.ico found, alter a new one with the same name while deleting the old one **
+
+<Args>
+    --name, -n [required]
+    --ext, -e [required]
+    --size, -s [optional]
