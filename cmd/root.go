@@ -127,6 +127,7 @@ func img(cmd *cobra.Command, args []string) error {
 	name := strings.Split(icon, ":")[1]
 	fmt.Println(prefix, name)
 
+	// TODO:  include size in the request
 	retrieveIconURL := apiURL + "/" + prefix + "/" + name + ".svg"
 
 	iconResp, err := http.Get(retrieveIconURL)
@@ -149,7 +150,16 @@ func img(cmd *cobra.Command, args []string) error {
 
 	// create a file with the name icon in the current working directory
 
-	
+	if ext == "svg" {
+		err = os.WriteFile(name+"."+ext, iconBody, 0644)
+		if err != nil {
+			return fmt.Errorf("can't write image: %w", err)
+		}
+	}								
+
+	if ext == "ico" {
+		
+	}
 
 
 	//	fmt.Println("Image downloaded successfully")
